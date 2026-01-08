@@ -1,0 +1,126 @@
+/* ===== Общая обёртка ===== */
+.toc {
+    background: transparent;
+}
+
+.toc .swiper {
+    padding: 20px !important;
+    padding-top: 0 !important;
+}
+
+.toc .swiper-slide {
+    width: fit-content;
+}
+
+.toc h2 {
+    white-space: nowrap;
+    text-align: center;
+    color: #121214;
+}
+
+/* ===== Ссылки (кнопки) ===== */
+.toc a {
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.5;
+    white-space: nowrap;
+
+    color: #121214; /* чёрный текст */
+    background: #ffffff; /* белая таблетка */
+    border: 1px solid rgba(72, 255, 0, 0.14);
+    border-radius: 22px;
+    padding: 10px 20px;
+
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+    backdrop-filter: saturate(120%) blur(2px);
+    transition: transform 0.2s ease, box-shadow 0.25s ease,
+        border-color 0.25s ease, background 0.25s ease, color 0.2s ease;
+}
+
+/* ===== Hover / Focus — розовая дымка + градиентная кайма ===== */
+.toc a:hover,
+.toc a:focus {
+    color: #121214;
+    background: #f9fff6;
+    border-color: rgba(72, 255, 0, 0.35);
+    box-shadow: 0 10px 28px rgba(123, 255, 0, 0.28),
+        0 0 0 2px rgba(0, 255, 13, 0.08) inset;
+    transform: translateY(-1px);
+}
+
+/* Актив — без «просадки» вниз */
+.toc a:active {
+    transform: translateY(0);
+}
+
+/* ===== Доступность ===== */
+.toc a:focus-visible {
+    outline: 3px solid rgba(30, 255, 0, 0.5);
+    outline-offset: 2px;
+    border-radius: 22px;
+}
+
+/* ===== Swiper wrapper ===== */
+.toc .swiper-wrapper {
+    padding-top: 20px;
+    padding-bottom: 24px;
+    justify-content: left;
+}
+
+/* ===== Scrollbar ===== */
+.toc-swiper .swiper-scrollbar {
+    background: rgba(0, 255, 13, 0.1);
+    height: 4px;
+    border-radius: 2px;
+}
+
+.toc-swiper .swiper-scrollbar-drag {
+    background: linear-gradient(90deg, #83ff6a, #46ff2e, #73ff00);
+    border-radius: 2px;
+    width: 20%;
+    box-shadow: 0 0 12px rgba(0, 255, 64, 0.35);
+}
+
+/* ===== Контейнер ===== */
+.toc.wrapper {
+    margin: 0 auto;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.swiper-horizontal > .swiper-scrollbar,
+.swiper-scrollbar.swiper-scrollbar-horizontal {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+}
+
+.toc-swiper {
+    max-width: 1400px;
+}
+
+/* ===== Мобилка ===== */
+@media screen and (max-width: 750px) {
+    .toc.wrapper {
+        margin-left: auto;
+    }
+
+    .swiper-horizontal > .swiper-scrollbar,
+    .swiper-scrollbar.swiper-scrollbar-horizontal {
+        width: 90% !important;
+        margin: 0 auto;
+    }
+
+    .toc .swiper-wrapper {
+        padding-top: 20px;
+        padding-bottom: 24px;
+        justify-content: left;
+    }
+
+    .toc a {
+        font-size: 16px;
+        padding: 10px 18px;
+    }
+}

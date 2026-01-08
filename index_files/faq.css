@@ -1,0 +1,168 @@
+/* ===== FAQ — Velvet Secret (Fuchsia Theme) ===== */
+
+.faq {
+    --brand: rgba(255, 0, 168, 0.25);
+    --brand-2: var(--fuchsia-2);
+    --brand-3: var(--fuchsia-3);
+    --ink: #000;
+    --muted: var(--gray);
+    --paper: transparent;
+    --stroke: rgba(255, 0, 168, 0.1);
+    --glass-brd: rgba(255, 0, 168, 0.25);
+    --chip: rgba(255, 0, 168, 0.08);
+}
+
+/* ===== Base Section ===== */
+.faq {
+    background: transparent;
+}
+.faq__head {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+.faq__sub {
+    margin: 0;
+    color: var(--muted);
+}
+
+/* ===== Fuchsia Accent Line ===== */
+.faq__tricolore {
+    display: flex;
+    height: 6px;
+    width: 160px;
+    margin: 14px auto 0;
+    border-radius: 999px;
+    overflow: hidden;
+    background: linear-gradient(
+        90deg,
+        var(--fuchsia-3),
+        var(--fuchsia-2) 55%,
+        var(--fuchsia)
+    );
+    box-shadow: 0 0 22px rgba(255, 0, 168, 0.6);
+}
+.faq__tricolore .it {
+    display: none;
+}
+
+/* ===== Cards List ===== */
+.faq-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+/* ===== Card ===== */
+/* ===== Card ===== */
+.faq-item {
+    background: #fff; /* белая карточка */
+    border: 1px solid rgba(255, 0, 168, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.35s ease;
+}
+
+.faq-item:hover {
+    border-color: rgba(21, 255, 0, 0.25);
+    box-shadow: 0 12px 32px rgba(179, 255, 0, 0.25);
+    background: #f8fff6; /* лёгкий розоватый оттенок при наведении */
+    transform: translateY(-3px);
+}
+
+/* ===== Question ===== */
+.faq-question {
+    width: 100%;
+    padding: 16px 56px 16px 18px;
+    text-align: left;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: 800;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Inter, "Manrope", system-ui, sans-serif;
+    color: var(--ink);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+.faq-item:hover .faq-question {
+    background: rgba(81, 255, 0, 0.04);
+    color: var(--ink);
+}
+
+/* ===== Plus/Minus Icon ===== */
+.faq-icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    background: color-mix(
+        in srgb,
+        var(--fuchsia-3) 35%,
+        rgba(255, 255, 255, 0.08)
+    );
+    border: 1px solid
+        color-mix(in srgb, var(--fuchsia) 60%, rgba(255, 255, 255, 0.5));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 4px 10px
+        color-mix(in srgb, var(--fuchsia) 25%, transparent);
+}
+.faq-icon::before,
+.faq-icon::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.faq-icon::after {
+    transform: rotate(90deg);
+}
+.faq-question.active .faq-icon::after {
+    opacity: 0;
+}
+.faq-icon {
+    background: color-mix(
+        in srgb,
+        var(--fuchsia-2) 55%,
+        rgba(255, 255, 255, 0.1)
+    );
+    box-shadow: var(--neon);
+}
+
+/* ===== Answer ===== */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 18px;
+    border-top: 1px solid transparent;
+    color: var(--gray);
+    transition: max-height 0.2s ease, padding 0.25s ease,
+        border-color 0.25s ease, opacity 0.25s ease;
+    opacity: 0;
+}
+.faq-answer.open {
+    max-height: 280px;
+    padding: 10px 18px 16px;
+    border-top-color: rgba(81, 255, 0, 0.15);
+    opacity: 1;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 640px) {
+    .faq-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 7px;
+    }
+}

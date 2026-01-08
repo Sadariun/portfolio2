@@ -1,0 +1,134 @@
+/* ===== Typography: DogeBoy (Parkinsans) ===== */
+/* Шрифт уже подключён у тебя через Google Fonts */
+
+.defaultH1,
+.defaultH2,
+.defaultH3,
+.defaultH4 {
+  font-family: "Parkinsans", sans-serif;
+  margin: 0 0 8px;
+}
+
+/* Базовые (десктоп, > 1100px) */
+.defaultH1 {
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 1.15;
+}
+
+.defaultH2 {
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 1.15;
+}
+
+.defaultH3 {
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.defaultH4 {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.defaultP,
+li {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.45;
+  color: #83878f;
+  margin: 0 0 10px;
+}
+
+/* ===== Секции ===== */
+section {
+  padding: 30px 0;
+}
+
+section h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+section h2 + p {
+  margin-bottom: 20px;
+}
+
+/* Компактные секции (левая колонка) */
+.left section {
+  padding: 10px 0;
+  margin-bottom: 0;
+}
+
+/* =====  ≤ 1100px (крупные планшеты / небольшие ноуты) ===== */
+@media (max-width: 1100px) {
+  .defaultH1 {
+    font-size: 48px;
+    line-height: 1.2;
+  }
+  .defaultH2 {
+    font-size: 34px;
+  }
+  .defaultH3 {
+    font-size: 22px;
+  }
+  .defaultH4 {
+    font-size: 20px;
+  }
+  .defaultP,
+  li {
+    font-size: 16px;
+  }
+}
+
+/* =====  ≤ 768px (планшеты / горизонтальный телефон) ===== */
+@media (max-width: 768px) {
+  .defaultH1 {
+    font-size: 40px;
+  }
+  .defaultH2 {
+    font-size: 30px;
+  }
+  .defaultH3 {
+    font-size: 20px;
+  }
+  .defaultH4 {
+    font-size: 18px;
+  }
+  .defaultP,
+  li {
+    font-size: 15px;
+  }
+
+  section {
+    padding: 24px 0;
+  }
+}
+
+/* =====  ≤ 480px (маленькие телефоны) ===== */
+@media (max-width: 480px) {
+  .defaultH1 {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+  .defaultH2 {
+    font-size: 26px;
+  }
+  .defaultH3 {
+    font-size: 18px;
+  }
+  .defaultH4 {
+    font-size: 16px;
+  }
+  .defaultP,
+  li {
+    font-size: 14px;
+  }
+
+  section {
+    padding: 20px 0;
+  }
+}

@@ -1,0 +1,333 @@
+/* ===== Neon Header — DogeBoy ===== */
+
+.site-header {
+    position: relative;
+    top: 0;
+    z-index: 40;
+    backdrop-filter: blur(14px);
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.96),
+        rgba(255, 255, 255, 0.88)
+    );
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+}
+
+.site-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+}
+
+/* Лого */
+.logo {
+    font: 900 22px/1 "Playfair Display", serif;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: #121214;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 64px;
+    width: 64px;
+    max-height: 64px;
+    max-width: 64px;
+    transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) all;
+    &&:hover {
+        scale: 1.1;
+    }
+    && img {
+        height: 64px;
+        width: 64px;
+        max-height: 64px;
+        max-width: 64px;
+    }
+}
+
+.logo span {
+    background: linear-gradient(100deg, #ff6ad5, #ff2ec4 45%, #ff00a8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(60, 255, 0, 0.45);
+}
+
+/* ===== Десктоп-навигация ===== */
+
+.nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav a,
+.header__nav > ul a {
+    position: relative;
+    color: #121214;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+    padding: 6px 4px;
+    transition: color 0.25s ease, text-shadow 0.25s ease, transform 0.18s ease;
+}
+
+/* розовая дымка позади текста */
+.nav a::before,
+.header__nav > ul a::before {
+    content: "";
+    position: absolute;
+    inset: -6px -10px;
+    border-radius: 999px;
+    background: radial-gradient(
+        140% 220% at 50% 0,
+        rgba(60, 255, 0, 0.26),
+        transparent 65%
+    );
+    opacity: 0;
+    transform: translateY(6px);
+    filter: blur(8px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: -1;
+}
+
+.nav a:hover,
+.header__nav > ul a:hover {
+    color: #121214; /* текст остаётся чёрным */
+    text-shadow: 0 0 14px rgba(60, 255, 0, 0.6);
+    transform: translateY(-1px);
+}
+
+.nav a:hover::before,
+.header__nav > ul a:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== Бургер-кнопка (мобилка) ===== */
+
+.burger {
+    display: none;
+    position: relative;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    border: 1px solid rgba(60, 255, 0, 0.35);
+    background: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+
+.burger::before,
+.burger::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22px;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #94ff6a, #93ff2e, #bbff00);
+    box-shadow: 0 0 10px rgba(60, 255, 0, 0.8);
+    transition: all 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.burger::before {
+    top: 16px;
+}
+
+.burger::after {
+    bottom: 16px;
+}
+
+.burger .icon-left {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 22px;
+    height: 2px;
+    transform: translate(-50%, -50%);
+    border-radius: 2px;
+    background: linear-gradient(90deg, #beff6a, #2eff4a, #1eff00);
+    box-shadow: 0 0 10px rgba(60, 255, 0, 0.8);
+    transition: all 0.3s ease;
+}
+
+.burger .icon-right {
+    display: none;
+}
+
+.burger:hover {
+    border-color: rgba(60, 255, 0, 0.7);
+    background: rgba(255, 246, 249, 0.9);
+    box-shadow: 0 0 24px rgba(60, 255, 0, 0.4), 0 12px 26px rgba(0, 0, 0, 0.16);
+    transform: translateY(-2px);
+}
+
+/* состояние «открыто» — крестик */
+.burger.open {
+    border-color: rgba(60, 255, 0, 0.9);
+    background: rgba(255, 246, 249, 0.95);
+}
+
+.burger.open::before {
+    top: 50%;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.burger.open::after {
+    top: 50%;
+    bottom: auto;
+    transform: translateX(-50%) rotate(-45deg);
+}
+
+.burger.open .icon-left {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.mobile__menu {
+    display: none;
+}
+
+/* ===== Основной header-layout ===== */
+
+header,
+.fadeInDown {
+    animation-delay: 0.5s !important;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0;
+}
+
+header > a {
+    max-width: 186px;
+    z-index: 80;
+}
+
+/* Десктоп-меню */
+
+.header__nav > a {
+    display: none !important;
+}
+
+.header__nav > ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    margin-inline: auto;
+}
+
+/* ===== Мобилка: off-canvas меню ===== */
+
+@media (max-width: 1024px) {
+    .nav {
+        display: none;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    header {
+        padding: 14px 0;
+    }
+
+    header > a:last-child {
+        display: none;
+    }
+
+    .header__nav {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100dvh;
+        background: radial-gradient(
+                800px 800px at 20% 10%,
+                rgba(60, 255, 0, 0.24),
+                transparent 60%
+            ),
+            radial-gradient(
+                900px 900px at 80% 90%,
+                rgba(106, 255, 131, 0.22),
+                transparent 60%
+            ),
+            rgba(7, 8, 14, 0.96);
+        backdrop-filter: blur(24px);
+        z-index: 50;
+        transform: translateX(-120%);
+        transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header__nav > ul {
+        margin-top: 80px;
+        margin-left: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+        height: 80vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .header__nav > ul a {
+        font-size: 18px;
+        color: #ffffff;
+    }
+
+    .header__nav > a {
+        display: inline-block !important;
+        margin: auto 24px 40px;
+        max-width: 90%;
+        text-align: center;
+        color: #121214 !important;
+        background: linear-gradient(100deg, #ff6ad5, #ff2ec4 45%, #ff00a8 90%);
+        border-radius: 999px;
+        padding: 12px 18px;
+        font-weight: 800;
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.4),
+            0 0 50px rgba(60, 255, 0, 0.35);
+    }
+
+    /* открытое состояние */
+    .navOpen {
+        transform: translateX(0%);
+    }
+}
+
+/* ===== Доступность / мелочи ===== */
+
+.header__nav > ul a:focus-visible,
+.burger:focus-visible {
+    outline: 2px solid #58ff2e;
+    outline-offset: 4px;
+}
+
+.mobile__menu {
+    display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .burger,
+    .burger * {
+        transition: none !important;
+    }
+    .header__nav {
+        transition: none !important;
+    }
+}

@@ -1,0 +1,78 @@
+/* ===== Minimal Footer Glow (adapted to your HTML) ===== */
+
+/* запасное значение для --neon, если его нет выше */
+:root {
+    --neon: 0 0 16px rgba(0, 255, 34, 0.35), 0 0 36px rgba(0, 255, 21, 0.18);
+}
+
+/* блок футера (аналог .footer) */
+.site-footer {
+    margin-top: 38px;
+    padding: 26px 0 42px;
+    border-top: 1px dashed rgba(0, 0, 0, 0.16);
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.78)
+    );
+}
+
+/* контейнер как есть */
+.site-footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* брендовый линк (аналог .brand--footer) */
+.site-footer .logo {
+    color: #0f0f12;
+    text-decoration: none;
+    font-weight: 900;
+    text-shadow: var(--neon);
+}
+
+/* на всякий случай — картинка логотипа без влияния на цвет текста */
+.site-footer .logo img {
+    display: block;
+    max-width: 140px;
+    height: auto;
+}
+
+/* соц-список (аналог .social) */
+.footer-social {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* ссылки соцсетей */
+.footer-social a {
+    color: #201f25;
+    text-decoration: none;
+    font-weight: 800;
+    transition: text-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.footer-social a:hover {
+    text-shadow: var(--neon);
+    transform: translateY(-2px);
+}
+
+/* слегка приводим другие списки к чистому виду */
+.footer-contacts,
+.footer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* нижняя строка оставляем как есть, если требуется можно добавить: */
+.footer-bottom {
+    text-align: center;
+    margin-top: 12px;
+    color: #333;
+}
